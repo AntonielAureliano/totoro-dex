@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { FilmsCard } from "../FilmsCard";
+
+import styles from "./FilmsList.module.css";
 
 // import styles from "./FilmsList.module.css";
 
@@ -21,9 +24,9 @@ export const FilmsList = () => {
     }, []);
 
     return (
-        <div>
+        <div className={styles.filmsGrid}>
             {films.map(film => (
-                <p>Nome: {film.title}, Diretor: {film.director}</p>
+                <FilmsCard key={film.id} film={film} />
             ))}
         </div>
     )
